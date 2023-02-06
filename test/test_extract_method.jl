@@ -144,4 +144,11 @@ function (y)
 end
 "
 
+ex = quote
+    for var_idx = 1:length(pv_fp)
+        x[i, 1] = 1
+    end
+end
+@test_broken unassigned_variables(ex, eval_type) == [:pv_fp, :i]
+
 end
